@@ -1,3 +1,23 @@
+============ Version 1.1 ============
+Configurations and More!
+
+User Class:
++ Register
++ Edit Password 
++ Delete User 
++ Edit Email 
++ Get User Data 
+
+Email Class:
++ Send Email 
+
+Middleware Class:
++ Check if logged in 
+
+Configuration File:
++ easily accessible from other files 
+
+=====================================
 ============ Version 1.0 ============
 Initial Release
 
