@@ -1,0 +1,10 @@
+============ Version 1.0 ============
+Initial Release
+
++ Database Connections
++ SQL Select and IDU
++ Authorization
++ 1 API in APIList
++ Added initial comments
+
+=====================================
