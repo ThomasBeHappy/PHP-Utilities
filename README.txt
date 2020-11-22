@@ -1,5 +1,5 @@
 ======= WELCOME =======
-Heya! This library was made mainly for the students of Grafisch Lyceeum Rotterdam. We noticed the school didn't really teach a lot. 
+Heya! This library was made mainly for the students of Grafisch Lyceum Rotterdam. We noticed the school didn't really teach a lot. 
 So here is a little library you can use in your projects to help you to be more efficient and improve your skills. 
 We highly recommend you try and go through most of the code and try to figure out how it works. We tried to comment as much of it as we can and made it as detailed as possible.
 Have fun using this and we are looking forward to seeing what you create!
