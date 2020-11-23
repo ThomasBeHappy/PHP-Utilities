@@ -23,9 +23,9 @@ class SQL {
 
                 foreach ($values as $value) { // go through our given parameters, this is an array that contains all our parameters, so $id, $name are all in this.
                     if (is_float($value)) { // Is it a number?
-                        $types+= "i"; // Yes? Add a i to the types string (i means that its a number variable, this is important for the database to know)
+                        $types .= "i"; // Yes? Add a i to the types string (i means that its a number variable, this is important for the database to know)
                     }else {
-                        $types+= "s"; // No? add a s to the types string (s means that it is a text variable)
+                        $types .= "s"; // No? add a s to the types string (s means that it is a text variable)
                     }
                 }
 
@@ -60,9 +60,9 @@ class SQL {
 
                 foreach ($values as $value) {
                     if (is_float($value)) {
-                        $types+= "i";
+                        $types .= "i";
                     }else {
-                        $types+= "s";
+                        $types .= "s";
                     }
                 }
 
