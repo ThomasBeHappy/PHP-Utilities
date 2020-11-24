@@ -1,5 +1,5 @@
 <?php
-
+include("../config/Configuration.php");
 use PHPMailer\PHPMailer\PHPMailer;
 
 class Mail {
@@ -8,11 +8,11 @@ class Mail {
             $mail = new PHPMailer;
 
             $mail->isSMTP();
-            $mail->Host = Configuration::$Mail_host;  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = Configuration::$Mail_SMTPAuth;                               // Enable SMTP authentication
-            $mail->Username = Configuration::$Mail_Username;                 // SMTP username
-            $mail->Password = Configuration::$Mail_Password;                           // SMTP password
-            $mail->SMTPSecure = Configuration::$Mail_SMTPSecure;                            // Enable encryption, 'ssl' also accepted
+            $mail->Host = MAIL_HOST;  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = MAIL_SMTPAUTH;                               // Enable SMTP authentication
+            $mail->Username = MAIL_USERNAME;                 // SMTP username
+            $mail->Password = MAIL_PASSWORD;                           // SMTP password
+            // $mail->SMTPSecure = MAIL_SMTPSECURE;                            // Enable encryption, 'ssl' also accepted
 
             $mail->From = $from;
             $mail->FromName = $fromName;

@@ -1,5 +1,5 @@
 <?php
-
+include("../config/Configuration.php");
 class Database {
     /**
      * 
@@ -11,11 +11,11 @@ class Database {
      * 
      */
     public static function connect() {
-        $host = Configuration::$Database_host;
-        $username = Configuration::$Database_username;
-        $password = Configuration::$Database_password;
-        $port = Configuration::$Database_port;
-        $database = Configuration::$Database_database;
+        $host = DATABASE_HOST;
+        $username = DATABASE_USERNAME;
+        $password = DATABASE_PASSWORD;
+        $port = DATABASE_PORT;
+        $database = DATABASE_DATABASE;
 
         if ($conn = mysqli_connect($host, $username, $password, $database, $port)) {
             return $conn;

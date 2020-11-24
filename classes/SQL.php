@@ -23,13 +23,15 @@ class SQL {
 
                 foreach ($values as $value) { // go through our given parameters, this is an array that contains all our parameters, so $id, $name are all in this.
                     if (is_float($value)) { // Is it a number?
-                        $types+= "i"; // Yes? Add a i to the types string (i means that its a number variable, this is important for the database to know)
+                        $types .= "i"; // Yes? Add a i to the types string (i means that its a number variable, this is important for the database to know)
                     }else {
-                        $types+= "s"; // No? add a s to the types string (s means that it is a text variable)
+                        $types .= "s"; // No? add a s to the types string (s means that it is a text variable)
                     }
                 }
-
-                $stmt->bind_param($types, $values); // This is a pretty complicated function and we highly suggest going to the PHP documentation for this one, 
+                $ref = new ReflectionClass("msqli_stmt");
+                $method = $ref->getMethod("bind_param");
+                $params = array_merge($types, $values);
+                $method->invokeArgs($stmt, $params); // This is a pretty complicated function and we highly suggest going to the PHP documentation for this one, 
                 // but a simple explanation is that we give it the parameters and what the types are of those parameters. https://www.php.net/manual/en/mysqli-stmt.bind-param.php
             }
             $stmt->execute(); // Execute our SQL code with the parameters in the ? places now.
@@ -60,13 +62,16 @@ class SQL {
 
                 foreach ($values as $value) {
                     if (is_float($value)) {
-                        $types+= "i";
+                        $types .= "i";
                     }else {
-                        $types+= "s";
+                        $types .= "s";
                     }
                 }
-
-                $stmt->bind_param($types, $values);
+                $ref = new ReflectionClass("msqli_stmt");
+                $method = $ref->getMethod("bind_param");
+                $params = array_merge($types, $values);
+                $method->invokeArgs($stmt, $params);
+                
             }
             if($stmt->execute()) {
                 return true;
