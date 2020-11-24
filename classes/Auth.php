@@ -1,4 +1,5 @@
 <?php
+include("../config/Configuration.php");
 
 class Auth {
     /**
@@ -13,7 +14,7 @@ class Auth {
      * 
      */
     public static function attempt($username, $password, $remember = false) {
-        $user = SQL::select("SELECT * FROM " . Configuration::$UserTable . " WHERE username = ?", $username); // Call select function from SQL.php and assign the output values to $user
+        $user = SQL::select("SELECT * FROM " . USER_TABLE . " WHERE username = ?", $username); // Call select function from SQL.php and assign the output values to $user
         if(!$user) { // Is user false?
             return false; // If yes, return false
         }

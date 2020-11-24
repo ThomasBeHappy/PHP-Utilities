@@ -28,8 +28,10 @@ class SQL {
                         $types .= "s"; // No? add a s to the types string (s means that it is a text variable)
                     }
                 }
-
-                $stmt->bind_param($types, $values); // This is a pretty complicated function and we highly suggest going to the PHP documentation for this one, 
+                $ref = new ReflectionClass("msqli_stmt");
+                $method = $ref->getMethod("bind_param");
+                $params = array_merge($types, $values);
+                $method->invokeArgs($stmt, $params); // This is a pretty complicated function and we highly suggest going to the PHP documentation for this one, 
                 // but a simple explanation is that we give it the parameters and what the types are of those parameters. https://www.php.net/manual/en/mysqli-stmt.bind-param.php
             }
             $stmt->execute(); // Execute our SQL code with the parameters in the ? places now.
@@ -65,8 +67,11 @@ class SQL {
                         $types .= "s";
                     }
                 }
-
-                $stmt->bind_param($types, $values);
+                $ref = new ReflectionClass("msqli_stmt");
+                $method = $ref->getMethod("bind_param");
+                $params = array_merge($types, $values);
+                $method->invokeArgs($stmt, $params);
+                
             }
             if($stmt->execute()) {
                 return true;
